@@ -1,34 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { lessons, months, professorInfo, professors, type Lesson } from "@/data/lessons";
+import { professorColor, subjects } from "@/data/subjects";
+import type { Lesson, Subject } from "@/data/types";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Aulas de Matemática — Medicina 07h00" },
+      { title: "Aulas de Matemática e Naturezas — Medicina 07h00" },
       {
         name: "description",
         content:
-          "Todas as aulas de matemática das frentes 1, 3 e M2 organizadas por mês, professor e conteúdo, com busca e marcação de progresso.",
+          "Todas as aulas de Matemática, Biologia, Física e Química organizadas por mês, professor e conteúdo, com busca e marcação de progresso.",
       },
-      { property: "og:title", content: "Aulas de Matemática — Medicina 07h00" },
+      {
+        property: "og:title",
+        content: "Aulas de Matemática e Naturezas — Medicina 07h00",
+      },
       {
         property: "og:description",
         content:
-          "Acesse rapidamente as gravações das aulas de matemática por mês, professor e conteúdo.",
+          "Acesse rapidamente as gravações das aulas por matéria, mês, professor e conteúdo.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
 });
 
-const STORAGE_KEY = "aulas-matematica-vistas";
+const STORAGE_KEY = "aulas-vistas";
+
+function normalize(s: string) {
+  return s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
 
 function Index() {
+  const [subjectId, setSubjectId] = useState(subjects[0]!.id);
   const [query, setQuery] = useState("");
   const [prof, setProf] = useState<string | null>(null);
   const [watched, setWatched] = useState<string[]>([]);
   const [onlyPending, setOnlyPending] = useState(false);
+
+  const subject = subjects.find((s) => s.id === subjectId)!;
 
   useEffect(() => {
     try {
@@ -52,50 +68,64 @@ function Index() {
   };
 
   const filtered = useMemo(() => {
-    const q = query
-      .trim()
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
-    return lessons.filter((l) => {
+    const q = normalize(query.trim());
+    return subject.lessons.filter((l) => {
       if (prof && l.professor !== prof) return false;
       if (onlyPending && watched.includes(l.id)) return false;
       if (!q) return true;
-      const hay = `${l.title} ${l.professor} ${l.frente} ${l.date} ${l.month}`
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-      return hay.includes(q);
+      return normalize(`${l.title} ${l.professor} ${l.frente} ${l.date} ${l.month}`).includes(
+        q,
+      );
     });
-  }, [query, prof, onlyPending, watched]);
+  }, [subject, query, prof, onlyPending, watched]);
 
-  const grouped = months
+  const grouped = subject.months
     .map((m) => ({ month: m, items: filtered.filter((l) => l.month === m) }))
     .filter((g) => g.items.length > 0);
 
-  const progress = Math.round((watched.length / lessons.length) * 100);
+  const subjectWatched = subject.lessons.filter((l) => watched.includes(l.id)).length;
+  const progress = Math.round((subjectWatched / subject.lessons.length) * 100);
+  const total = subjects.reduce((n, s) => n + s.lessons.length, 0);
 
   return (
     <div className="min-h-screen">
-      <header className="mx-auto max-w-6xl px-5 pt-16 pb-10 sm:px-8">
+      <header className="mx-auto max-w-6xl px-5 pt-16 pb-8 sm:px-8">
         <p className="font-display text-xs tracking-[0.35em] text-primary uppercase">
           Medicina · 07h00
         </p>
         <h1 className="mt-4 text-4xl leading-tight font-bold sm:text-6xl">
-          Suas aulas de <span className="text-primary">Matemática</span>
+          Suas aulas de <span className="text-primary">{subject.label}</span>
         </h1>
         <p className="text-muted-foreground mt-4 max-w-2xl text-base sm:text-lg">
-          Todas as gravações das frentes 1, 3 e M2 em um só lugar — organizadas por mês,
+          {subject.tagline} — {total} gravações catalogadas entre Matemática e Naturezas,
           com busca por conteúdo e controle do que você já revisou.
         </p>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        <div className="mt-8 flex flex-wrap gap-2">
+          {subjects.map((s) => (
+            <button
+              key={s.id}
+              onClick={() => {
+                setSubjectId(s.id);
+                setProf(null);
+              }}
+              className={`chip ${s.id === subjectId ? "chip-active" : ""}`}
+            >
+              {s.label}
+              <span className="opacity-70">{s.lessons.length}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
           <div className="card-surface rounded-2xl p-5">
-            <p className="font-display text-3xl font-bold">{lessons.length}</p>
-            <p className="text-muted-foreground mt-1 text-sm">aulas catalogadas</p>
+            <p className="font-display text-3xl font-bold">{subject.lessons.length}</p>
+            <p className="text-muted-foreground mt-1 text-sm">
+              aulas de {subject.label}
+            </p>
           </div>
           <div className="card-surface rounded-2xl p-5">
-            <p className="font-display text-3xl font-bold">{months.length}</p>
+            <p className="font-display text-3xl font-bold">{subject.months.length}</p>
             <p className="text-muted-foreground mt-1 text-sm">meses de conteúdo</p>
           </div>
           <div className="card-surface rounded-2xl p-5">
@@ -107,39 +137,42 @@ function Index() {
               />
             </div>
             <p className="text-muted-foreground mt-2 text-sm">
-              {watched.length} de {lessons.length} revisadas
+              {subjectWatched} de {subject.lessons.length} revisadas
             </p>
           </div>
         </div>
       </header>
 
       <section className="mx-auto max-w-6xl px-5 sm:px-8">
-        <div className="grid gap-4 sm:grid-cols-3">
-          {professors.map((p) => (
-            <button
-              key={p}
-              onClick={() => setProf(prof === p ? null : p)}
-              className={`card-surface rounded-2xl p-5 text-left ${
-                prof === p ? "ring-primary ring-2" : ""
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <span
-                  className="size-2.5 rounded-full"
-                  style={{
-                    backgroundColor: `var(--${p === "Flávio" ? "flavio" : p.toLowerCase()})`,
-                  }}
-                />
-                <p className="font-display text-lg font-semibold">{p}</p>
-              </div>
-              <p className="text-muted-foreground mt-2 text-sm">
-                {professorInfo[p].frente} · {professorInfo[p].area}
-              </p>
-              <p className="text-muted-foreground/70 mt-3 text-xs">
-                {lessons.filter((l) => l.professor === p).length} aulas
-              </p>
-            </button>
-          ))}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {subject.professors.map((p) => {
+            const color = professorColor(subject, p);
+            const items = subject.lessons.filter((l) => l.professor === p);
+            const frentes = Array.from(new Set(items.map((l) => l.frente))).join(", ");
+            return (
+              <button
+                key={p}
+                onClick={() => setProf(prof === p ? null : p)}
+                className={`card-surface rounded-2xl p-5 text-left ${
+                  prof === p ? "ring-primary ring-2" : ""
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <span
+                    className="size-2.5 shrink-0 rounded-full"
+                    style={{ backgroundColor: color }}
+                  />
+                  <p className="font-display text-lg font-semibold">{p}</p>
+                </div>
+                <p className="text-muted-foreground mt-2 text-sm">
+                  {frentes ? `Frente ${frentes}` : "Aula especial"}
+                </p>
+                <p className="text-muted-foreground/70 mt-3 text-xs">
+                  {items.length} aulas
+                </p>
+              </button>
+            );
+          })}
         </div>
 
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -147,7 +180,7 @@ function Index() {
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Buscar conteúdo, ex: trigonometria, matrizes, logaritmos…"
+              placeholder="Buscar conteúdo, ex: citologia, ondas, estequiometria…"
               className="bg-card/70 border-border focus:border-primary focus:ring-primary/30 text-foreground placeholder:text-muted-foreground/70 w-full rounded-full border px-5 py-3 text-sm outline-none focus:ring-2"
             />
           </div>
@@ -188,6 +221,7 @@ function Index() {
                 <LessonCard
                   key={lesson.id}
                   lesson={lesson}
+                  color={professorColor(subject, lesson.professor)}
                   watched={watched.includes(lesson.id)}
                   onToggle={() => toggleWatched(lesson.id)}
                 />
@@ -208,29 +242,29 @@ function Index() {
 
 function LessonCard({
   lesson,
+  color,
   watched,
   onToggle,
 }: {
   lesson: Lesson;
+  color: string;
   watched: boolean;
   onToggle: () => void;
 }) {
-  const color = lesson.professor === "Flávio" ? "flavio" : lesson.professor.toLowerCase();
   return (
     <article className="card-surface relative overflow-hidden rounded-2xl p-5">
-      <span
-        className="absolute inset-y-0 left-0 w-1"
-        style={{ backgroundColor: `var(--${color})` }}
-      />
+      <span className="absolute inset-y-0 left-0 w-1" style={{ backgroundColor: color }} />
       <div className="flex items-start justify-between gap-4 pl-2">
         <div>
           <div className="text-muted-foreground flex flex-wrap items-center gap-2 text-xs">
             <span className="font-display text-foreground">{lesson.date}</span>
             <span>·</span>
-            <span style={{ color: `var(--${color})` }}>{lesson.professor}</span>
-            <span className="border-border rounded-full border px-2 py-0.5">
-              Frente {lesson.frente}
-            </span>
+            <span style={{ color }}>{lesson.professor}</span>
+            {lesson.frente && (
+              <span className="border-border rounded-full border px-2 py-0.5">
+                Frente {lesson.frente}
+              </span>
+            )}
           </div>
           <h3 className="mt-3 text-base leading-snug font-semibold">{lesson.title}</h3>
         </div>
@@ -262,3 +296,5 @@ function LessonCard({
     </article>
   );
 }
+
+export type { Subject };
