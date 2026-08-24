@@ -1,3 +1,5 @@
+import type { RawLesson } from "./types";
+
 export type Lesson = {
   id: string;
   date: string; // dd/mm
@@ -438,3 +440,5 @@ export const professorInfo: Record<Lesson["professor"], { frente: string; area: 
 };
 
 export const months = Array.from(new Set(lessons.map((l) => l.month)));
+
+export const mathRaw: RawLesson[] = raw as RawLesson[];
