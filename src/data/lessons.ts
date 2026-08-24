@@ -422,7 +422,7 @@ const monthNames: Record<string, string> = {
 export const lessons: Lesson[] = raw.map(([date, professor, frente, title, url], i) => ({
   id: `${i}`,
   date,
-  month: monthNames[date.split("/")[1]] ?? date.split("/")[1],
+  month: monthNames[date.split("/")[1] ?? ""] ?? date,
   professor,
   frente,
   title,
