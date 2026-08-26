@@ -28,7 +28,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "11/fev",
     "Walter",
-    "M2",
+    "2",
     "Potências e Raízes",
     "https://sistemapoliedro.zoom.us/rec/share/SdB6a5aKm9n2zSD2fRoGWcM9HbnVoaRD9sbfM-GSoK3pkwYyJ1U3mXn5Cg4L7t0s.0jObNP3C_IF8CRJM?startTime=1770829826000",
   ],
@@ -49,7 +49,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "25/fev",
     "Walter",
-    "M2",
+    "2",
     "Conjuntos Numéricos",
     "https://sistemapoliedro.zoom.us/rec/share/0goNeWOYARJu-E9fQ9whoyCqIApjmhbC2a3GrHEpgDOsLOQP_VUy1hsgwKX-oiF0.4t5yOtpiYmd_j_Tf?startTime=1772039270000",
   ],
@@ -70,7 +70,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "04/mar",
     "Walter",
-    "M2",
+    "2",
     "MMC e MDC",
     "https://sistemapoliedro.zoom.us/rec/share/tgtjf69VXea5xFpCFeiSYvrqf-WKVGc93dDbEF8jAEMcGKwyiCoWFr5hfvP-39K_.JN3kiDxuu1hLb0KF?startTime=1772644429000",
   ],
@@ -91,7 +91,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "11/mar",
     "Walter",
-    "M2",
+    "2",
     "Divisão Euclidiana",
     "https://sistemapoliedro.zoom.us/rec/share/2-2e8cPun-rFPyJ-bRG4sZnP5xOes-MKn-Bv4NOU3CsOoJHc52rU_g0aZDtIL4Pi.vIe_Sw_2M398Tinr?startTime=1773249386000",
   ],
@@ -112,7 +112,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "18/mar",
     "Walter",
-    "M2",
+    "2",
     "Fatoração e Racionalização",
     "https://sistemapoliedro.zoom.us/rec/share/UE5ATtOGqKF-VMnWqnvL5twOzbrFiW7KtTfusbxczy8wuVY_bXrC-f74gh4gWX6A.2fgBhxBL6mBEFxpo?startTime=1773854565000",
   ],
@@ -133,7 +133,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "25/mar",
     "Walter",
-    "M2",
+    "2",
     "Lista — Problemas",
     "https://sistemapoliedro.zoom.us/rec/share/-zqCWLng91DryBhk4Tl9ldNLRCIIeMsPsKu6EBLgqaJxMQbpLRXQNBemR0ngcq90.IvwhcApkmBmoBORs?startTime=1774458859000",
   ],
@@ -154,7 +154,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "01/abr",
     "Walter",
-    "M2",
+    "2",
     "Grandezas",
     "https://sistemapoliedro.zoom.us/rec/share/pbco_6xXCgLrNxbekN_1Jp64l5c4qUputQfyz74TyMmON-yeP4_oNje7dfTBrwho.192yiEARyzwBiuAq?startTime=1775063690000",
   ],
@@ -175,7 +175,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "08/abr",
     "Walter",
-    "M2",
+    "2",
     "Porcentagens",
     "https://sistemapoliedro.zoom.us/rec/share/NrcdXlkTYv39eciD3yceZd-oXB60aeVPqv7vwKZg30c7ns4Lu6hh-KVu1pTsjTx7.I0Km5dtzZlVR4lZP?startTime=1775651253000",
   ],
@@ -196,7 +196,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "15/abr",
     "Walter",
-    "M2",
+    "2",
     "Juros Simples e Juros Compostos",
     "https://sistemapoliedro.zoom.us/rec/share/ArNrgl5lE1ukMLOwJXE4kvixQiQsPMhJxHacRKnIogGW0xn7ysKCqSkdz8f0NQrf.G3-_HKF7QevtMYC8?startTime=1776273283000",
   ],
@@ -217,7 +217,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "22/abr",
     "Walter",
-    "M2",
+    "2",
     "Progressão Aritmética",
     "https://sistemapoliedro.zoom.us/rec/share/NmyuwWeAnzcLu6NDXqC9lgrJrhvXnUj_b1sjAz2PgRcdgQQWx-yJZao7dpFGFULH.UrxeOK9fWcjIMvVG?startTime=1776878008000",
   ],
@@ -238,7 +238,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "29/abr",
     "Walter",
-    "M2",
+    "2",
     "Progressão Geométrica",
     "https://sistemapoliedro.zoom.us/rec/share/jm2YSFSF4UigecPzREV_tCs7S1AYbbz_nWxgNMdS-w2wlagWtjqOow5jliAYLfe4.Yjqe8iMRh8Kg5JXx?startTime=1777482991000",
   ],
@@ -259,7 +259,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "13/mai",
     "Walter",
-    "M2",
+    "2",
     "Soma da PG",
     "https://sistemapoliedro.zoom.us/rec/share/zz-D9xje4HfsslmqecMddrfFVARMiIKxSOMf37bsfda2xeNN_09XOsqPKlyjran6.Q1sSKO3tYuyqgVNA?startTime=1778692493000",
   ],
@@ -280,7 +280,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "20/mai",
     "Walter",
-    "M2",
+    "2",
     "Sequências",
     "https://sistemapoliedro.zoom.us/rec/share/E7aAylwzwpGcl86TA3jqVW8puCARrx51l88gH03vdJEEo-D10Hv8E1FDVP4sNL7j.lSMchxNPUCQKD19F?startTime=1779297450000",
   ],
@@ -301,7 +301,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "27/mai",
     "Walter",
-    "M2",
+    "2",
     "Matrizes I",
     "https://sistemapoliedro.zoom.us/rec/share/IL2EDLfhVNt0sPVZIiuDUdLj7n2U6BWGe4BvdpSEnIFn7wEdFc1E3qdAk_jm6f_j.14dzgOmLUCc-OFg1?startTime=1779902057000",
   ],
@@ -322,7 +322,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "03/jun",
     "Walter",
-    "M2",
+    "2",
     "Matrizes II",
     "https://sistemapoliedro.zoom.us/rec/share/IvGK_4gdrGyVtw2I4NRaENj_q2mqEcpCwoHpT-iv0_UZU0An8znKHVuampc-dOhC.Nv9UntEs75x-V0_W?startTime=1780506934000",
   ],
@@ -343,7 +343,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "10/jun",
     "Walter",
-    "M2",
+    "2",
     "Determinantes I",
     "https://sistemapoliedro.zoom.us/rec/share/a3RdxWXHqWxzEZw9udZOop1nKC8cFiuVpIPkAoZqXJQPPs6_wxN4Rlbztc2ApOcf.UrhLCT-GyF3n6wga?startTime=1781111656000",
   ],
@@ -364,7 +364,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "17/jun",
     "Walter",
-    "M2",
+    "2",
     "Determinantes II",
     "https://sistemapoliedro.zoom.us/rec/share/ufvH0J7qeze64-Nu0srATBiCoNfyDOCNAfZ0fu5o_Y_jnKAJviCqV45w5biFcraZ.aKKenVB2lyY0rymW?startTime=1781716520000",
   ],
@@ -385,7 +385,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "24/jun",
     "Walter",
-    "M2",
+    "2",
     "Sistemas Lineares I",
     "https://sistemapoliedro.zoom.us/rec/share/hwqJqB3pG-8cEAHqTlBwZiOK4R2OHgs3eb_yR8VnuHyVJA8gcW4DZBSVPxM66ug5.adYEXhNViRWvvWZb?startTime=1782304434000",
   ],
@@ -406,7 +406,7 @@ const raw: Array<[string, Lesson["professor"], string, string, string]> = [
   [
     "01/jul",
     "Walter",
-    "M2",
+    "2",
     "Sistemas Lineares II",
     "https://sistemapoliedro.zoom.us/rec/share/X_bfE8Nu3z31iiwAyOBWd_wOtf7vUXJ_2eKDHb8Rk2kGYD0f459K0jInMNLuO0A.5adryNEWU5GqvL4v?startTime=1782926513000",
   ],
