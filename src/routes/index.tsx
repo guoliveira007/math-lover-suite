@@ -97,7 +97,7 @@ function Index() {
           Suas aulas de <span className="text-primary">{subject.label}</span>
         </h1>
         <p className="text-muted-foreground mt-4 max-w-2xl text-base sm:text-lg">
-          {subject.tagline} — {total} gravações catalogadas entre Matemática e Naturezas,
+          {subject.tagline} — {total} gravações catalogadas de todas as áreas,
           com busca por conteúdo e controle do que você já revisou.
         </p>
 
