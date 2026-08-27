@@ -1,5 +1,6 @@
 import { mathRaw } from "./lessons";
 import { bioRaw, fisicaRaw, quimicaRaw } from "./naturezas";
+import { filosofiaRaw, geografiaRaw, historiaRaw, portuguesRaw } from "./humanas";
 import type { Lesson, RawLesson, Subject } from "./types";
 
 const monthNames: Record<string, string> = {
