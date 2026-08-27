@@ -101,21 +101,61 @@ function Index() {
           com busca por conteúdo e controle do que você já revisou.
         </p>
 
-        <div className="mt-8 flex flex-wrap gap-2">
-          {subjects.map((s) => (
-            <button
-              key={s.id}
-              onClick={() => {
-                setSubjectId(s.id);
-                setProf(null);
-              }}
-              className={`chip ${s.id === subjectId ? "chip-active" : ""}`}
-            >
-              {s.label}
-              <span className="opacity-70">{s.lessons.length}</span>
-            </button>
-          ))}
-        </div>
+        <nav className="mt-10 space-y-5">
+          {areas.map((area) => {
+            const items = subjects.filter((s) => s.area === area);
+            if (items.length === 0) return null;
+            return (
+              <div key={area}>
+                <p className="font-display text-muted-foreground/70 mb-3 text-[0.68rem] tracking-[0.28em] uppercase">
+                  {area}
+                </p>
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  {items.map((s) => {
+                    const done = s.lessons.filter((l) => watched.includes(l.id)).length;
+                    const pct = Math.round((done / s.lessons.length) * 100);
+                    const active = s.id === subjectId;
+                    return (
+                      <button
+                        key={s.id}
+                        onClick={() => {
+                          setSubjectId(s.id);
+                          setProf(null);
+                        }}
+                        className={`card-surface rounded-2xl p-4 text-left ${
+                          active ? "ring-primary ring-2" : ""
+                        }`}
+                      >
+                        <div className="flex items-baseline justify-between gap-2">
+                          <span
+                            className={`font-display text-sm font-semibold ${
+                              active ? "text-primary" : ""
+                            }`}
+                          >
+                            {s.label}
+                          </span>
+                          <span className="text-muted-foreground/70 text-[0.7rem]">
+                            {s.lessons.length}
+                          </span>
+                        </div>
+                        <div className="bg-muted mt-3 h-1 w-full overflow-hidden rounded-full">
+                          <div
+                            className="bg-primary h-full rounded-full transition-all duration-500"
+                            style={{ width: `${pct}%` }}
+                          />
+                        </div>
+                        <p className="text-muted-foreground/70 mt-2 text-[0.7rem]">
+                          {pct}% revisado
+                        </p>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </nav>
+
 
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           <div className="card-surface rounded-2xl p-5">
