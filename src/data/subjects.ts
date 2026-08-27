@@ -1,5 +1,6 @@
 import { mathRaw } from "./lessons";
 import { bioRaw, fisicaRaw, quimicaRaw } from "./naturezas";
+import { filosofiaRaw, geografiaRaw, historiaRaw, portuguesRaw } from "./humanas";
 import type { Lesson, RawLesson, Subject } from "./types";
 
 const monthNames: Record<string, string> = {
@@ -22,6 +23,7 @@ const monthOrder = Object.keys(monthNames);
 function build(
   id: string,
   label: string,
+  area: string,
   tagline: string,
   raw: RawLesson[],
 ): Subject {
@@ -46,6 +48,7 @@ function build(
   return {
     id,
     label,
+    area,
     tagline,
     lessons,
     professors: Array.from(new Set(lessons.map((l) => l.professor))),
@@ -53,24 +56,69 @@ function build(
   };
 }
 
+export const areas = ["Exatas", "Naturezas", "Humanas", "Linguagens"] as const;
+
 export const subjects: Subject[] = [
   build(
     "matematica",
     "Matemática",
-    "Frentes 1, 3 e M2 — funções, geometria e álgebra",
+    "Exatas",
+    "Frentes 1, 2 e 3 — funções, geometria e álgebra",
     mathRaw,
   ),
-  build("biologia", "Biologia", "Frentes 1 a 4 — citologia, ecologia e zoologia", bioRaw),
-  build("fisica", "Física", "Frentes 1 a 4 — mecânica, termologia e ondas", fisicaRaw),
+  build(
+    "biologia",
+    "Biologia",
+    "Naturezas",
+    "Frentes 1 a 4 — citologia, ecologia e zoologia",
+    bioRaw,
+  ),
+  build(
+    "fisica",
+    "Física",
+    "Naturezas",
+    "Frentes 1 a 4 — mecânica, termologia e ondas",
+    fisicaRaw,
+  ),
   build(
     "quimica",
     "Química",
+    "Naturezas",
     "Frentes 1 a 4 — atomística, físico-química e orgânica",
     quimicaRaw,
+  ),
+  build(
+    "portugues",
+    "Português",
+    "Linguagens",
+    "Gramática, Literatura, Interpretação de Texto e Redação",
+    portuguesRaw,
+  ),
+  build(
+    "historia",
+    "História",
+    "Humanas",
+    "História Geral e História do Brasil",
+    historiaRaw,
+  ),
+  build(
+    "geografia",
+    "Geografia",
+    "Humanas",
+    "Frentes 1 e 2 — geografia física, humana e atualidades",
+    geografiaRaw,
+  ),
+  build(
+    "filosofia",
+    "Filosofia e Sociologia",
+    "Humanas",
+    "Pensadores clássicos e sociologia contemporânea",
+    filosofiaRaw,
   ),
 ];
 
 export const allLessons = subjects.flatMap((s) => s.lessons);
+
 
 export const accentVars = ["--c1", "--c2", "--c3", "--c4", "--c5", "--c6"];
 
