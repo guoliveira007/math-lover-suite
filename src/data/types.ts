@@ -20,6 +20,7 @@ export type Lesson = {
 export type Subject = {
   id: string;
   label: string;
+  area: string;
   tagline: string;
   lessons: Lesson[];
   professors: string[];
