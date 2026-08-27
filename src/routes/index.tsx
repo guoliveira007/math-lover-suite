@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { professorColor, subjects } from "@/data/subjects";
+import { areas, professorColor, subjects } from "@/data/subjects";
 import type { Lesson, Subject } from "@/data/types";
 
 export const Route = createFileRoute("/")({
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Todas as aulas de Matemática, Biologia, Física e Química organizadas por mês, professor e conteúdo, com busca e marcação de progresso.",
+          "Todas as aulas de Matemática, Naturezas, Humanas e Linguagens organizadas por mês, professor e conteúdo, com busca e marcação de progresso.",
       },
       {
         property: "og:title",
