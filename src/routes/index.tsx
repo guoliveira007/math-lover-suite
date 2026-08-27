@@ -266,7 +266,9 @@ function Index() {
                   color={professorColor(subject, lesson.professor)}
                   watched={watched.includes(lesson.id)}
                   onToggle={() => toggleWatched(lesson.id)}
+                  onPlay={() => setPlaying(lesson)}
                 />
+
               ))}
             </div>
           </section>
