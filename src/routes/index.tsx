@@ -43,6 +43,8 @@ function Index() {
   const [prof, setProf] = useState<string | null>(null);
   const [watched, setWatched] = useState<string[]>([]);
   const [onlyPending, setOnlyPending] = useState(false);
+  const [playing, setPlaying] = useState<Lesson | null>(null);
+
 
   const subject = subjects.find((s) => s.id === subjectId)!;
 
