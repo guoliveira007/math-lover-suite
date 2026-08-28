@@ -425,14 +425,20 @@ function LessonCard({
           ✓
         </button>
       </div>
-      <div className="mt-5 flex items-center gap-3 pl-2">
+      <div className="mt-5 flex flex-wrap items-center gap-3 pl-2">
+        <button
+          onClick={onPlay}
+          className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors"
+        >
+          ▶ Assistir aqui
+        </button>
         <a
           href={lesson.url}
           target="_blank"
           rel="noreferrer"
-          className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors"
+          className="text-muted-foreground hover:text-primary text-xs underline underline-offset-4"
         >
-          Assistir aula
+          Abrir no Zoom
         </a>
         <span className="text-muted-foreground/70 text-xs">
           {watched ? "Revisada" : "Pendente"}
