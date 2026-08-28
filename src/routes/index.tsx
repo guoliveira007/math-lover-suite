@@ -387,13 +387,11 @@ function LessonCard({
   color,
   watched,
   onToggle,
-  onPlay,
 }: {
   lesson: Lesson;
   color: string;
   watched: boolean;
   onToggle: () => void;
-  onPlay: () => void;
 }) {
 
   return (
