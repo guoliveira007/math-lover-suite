@@ -43,7 +43,6 @@ function Index() {
   const [prof, setProf] = useState<string | null>(null);
   const [watched, setWatched] = useState<string[]>([]);
   const [onlyPending, setOnlyPending] = useState(false);
-  const [playing, setPlaying] = useState<Lesson | null>(null);
 
 
   const subject = subjects.find((s) => s.id === subjectId)!;
@@ -266,7 +265,6 @@ function Index() {
                   color={professorColor(subject, lesson.professor)}
                   watched={watched.includes(lesson.id)}
                   onToggle={() => toggleWatched(lesson.id)}
-                  onPlay={() => setPlaying(lesson)}
                 />
 
               ))}
@@ -281,103 +279,6 @@ function Index() {
         </div>
       </footer>
 
-      {playing && (
-        <PlayerModal
-          lesson={playing}
-          watched={watched.includes(playing.id)}
-          onToggle={() => toggleWatched(playing.id)}
-          onClose={() => setPlaying(null)}
-        />
-      )}
-    </div>
-  );
-}
-
-function PlayerModal({
-  lesson,
-  watched,
-  onToggle,
-  onClose,
-}: {
-  lesson: Lesson;
-  watched: boolean;
-  onToggle: () => void;
-  onClose: () => void;
-}) {
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
-
-  return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
-      onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-      aria-label={lesson.title}
-    >
-      <div
-        className="card-surface flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="border-border/60 flex items-start justify-between gap-4 border-b px-5 py-4">
-          <div>
-            <p className="text-muted-foreground text-xs">
-              {lesson.date} · {lesson.professor}
-              {lesson.frente ? ` · Frente ${lesson.frente}` : ""}
-            </p>
-            <h3 className="font-display mt-1 text-base leading-snug font-semibold">
-              {lesson.title}
-            </h3>
-          </div>
-          <button
-            onClick={onClose}
-            aria-label="Fechar"
-            className="border-border text-muted-foreground hover:border-primary grid size-8 shrink-0 place-items-center rounded-full border"
-          >
-            ✕
-          </button>
-        </div>
-
-        <div className="bg-black aspect-video w-full">
-          <iframe
-            src={lesson.url}
-            title={lesson.title}
-            className="h-full w-full"
-            allow="autoplay; fullscreen; encrypted-media"
-            allowFullScreen
-          />
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3 px-5 py-4">
-          <button
-            onClick={onToggle}
-            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-              watched
-                ? "bg-primary text-primary-foreground"
-                : "border-border text-muted-foreground hover:border-primary border"
-            }`}
-          >
-            {watched ? "Revisada ✓" : "Marcar como revisada"}
-          </button>
-          <a
-            href={lesson.url}
-            target="_blank"
-            rel="noreferrer"
-            className="text-muted-foreground hover:text-primary text-xs underline underline-offset-4"
-          >
-            Não carregou? Abrir no Zoom
-          </a>
-        </div>
-      </div>
     </div>
   );
 }
