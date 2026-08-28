@@ -78,6 +78,21 @@ export const portuguesRaw: RawLesson[] = [
   ["02/jul", "Fernanda", "Redação", "Análise Unesp 2022", "https://sistemapoliedro.zoom.us/rec/share/ylgMFhb9yFsl0SJTN4W0w8uT-RoCZNmoi-PN0qgccgFlOlMThrWIFbkrcvqmwA4n.QrOV1-YVCMTq1oez?startTime=1782993897000"],
   ["02/jul", "Shiroma", "Gramática", "Verbos I: Estruturas e Tempos", "https://sistemapoliedro.zoom.us/rec/share/ylgMFhb9yFsl0SJTN4W0w8uT-RoCZNmoi-PN0qgccgFlOlMThrWIFbkrcvqmwA4n.QrOV1-YVCMTq1oez?startTime=1783001009000"],
   ["04/jul", "Tiago Fernandes", "Interpretação de Texto", "Linguagem Coloquial", "https://sistemapoliedro.zoom.us/rec/share/NZjmlJN7c4Sf_KFkOG6yksqyOxy9zqT4E6sVmWHgySsBApQru257YVY_CY_Evslb.86igJ_RWrL1dzsx9?startTime=1783166807000"],
+  ["29/jul", "Valdir", "Literatura", "Obras da Fuvest: Geografia", "https://sistemapoliedro.zoom.us/rec/share/qCOzGGtsvn9Un6WcPEjJmlEgCnz9CvQtj3B8hD9vKgyN21Y9UK09vdOUEyvtya00.9TVtVq-yLO84FJRe?startTime=1785333678000"],
+  ["30/jul", "Shiroma", "Gramática", "Modos Verbais, Formas Nominais e Correlação de Tempos", "https://sistemapoliedro.zoom.us/rec/share/XWHgGlSwSFbFRjzBobq4DH4PRqpGeq9mRP6dcaCEIjdtKsP47YtmOmf0rT-M4Vd6.f5bZ_tkRXYPHMBFA?startTime=1785413027000"],
+  ["30/jul", "Fernanda", "Redação", "Abordagem Temática - Imigrantes", "https://sistemapoliedro.zoom.us/rec/share/XWHgGlSwSFbFRjzBobq4DH4PRqpGeq9mRP6dcaCEIjdtKsP47YtmOmf0rT-M4Vd6.f5bZ_tkRXYPHMBFA?startTime=1785420429000"],
+  ["01/ago", "Tiago Fernandes", "Interpretação de Texto", "Gêneros Textuais", "https://sistemapoliedro.zoom.us/rec/share/s0gQKOv4wLaR79R67IEx1KXZXhsTPI-55YbEyX9xBfyzyPP1GBD9ZsV2hB5M9CAK.LAv-z4V3KEWjp57i?startTime=1785585982000"],
+  ["05/ago", "Valdir", "Literatura", "Obras da Fuvest: A Paixão Segundo G.H", "https://sistemapoliedro.zoom.us/rec/share/Fjp0xhDNAdbkqDv1QrHg3Xz4OKPgS7ptiRr9oD6a6DX4pNK7V75wForU1XqLiLcd.J3ZSlTcgL1itJxwm?startTime=1785938515000"],
+  ["06/ago", "Shiroma", "Gramática", "Verbos III: Emprego dos Tempos Verbais", "https://sistemapoliedro.zoom.us/rec/share/SBR2WybcpFNriLapJZs986TFmqMW6c8PrJT1_2RueVTpMZf9_5qBNqZMEAjzbeMp.5nyQ79yXzb8GBlsO?startTime=1786017848000"],
+  ["06/ago", "Fernanda", "Redação", "ENEM: Competência 1", "https://sistemapoliedro.zoom.us/rec/share/SBR2WybcpFNriLapJZs986TFmqMW6c8PrJT1_2RueVTpMZf9_5qBNqZMEAjzbeMp.5nyQ79yXzb8GBlsO?startTime=1786024938000"],
+  ["08/ago", "Tiago Fernandes", "Interpretação de Texto", "Entendimento de Texto: 5", "https://sistemapoliedro.zoom.us/rec/share/IsS14bSJ3xv8pKmHob1gPdKc_rtj7WHBsEIHGNV3w-zGCtd0gKIVuUzx0BgKMOzD.2kXERauzTLAhziiM?startTime=1786190950000"],
+  ["12/ago", "Valdir", "Literatura", "Obras da Fuvest: Opúsculo Humanitário", "https://sistemapoliedro.zoom.us/rec/share/PEI5ZTzNsI7nhMp7QkwCu-3xpr_EoOmynt38FBfPHRmwbF2w8tke5h0g0ng5cNjg.z2yI3M8rlLQmCO46?startTime=1786543250000"],
+  ["13/ago", "Shiroma", "Gramática", "Verbos IV: Vozes Verbais", "https://sistemapoliedro.zoom.us/rec/share/2EJhB-Mo3j2ITRia75VFtljMs1eaqDqLqFLbW_2VSgMHi4maGsXWkdMeNQDGnM_i.cBqhtE_Ll4yRx9zr?startTime=1786622605000"],
+  ["13/ago", "Fernanda", "Redação", "Análise Enem C3 + Notas Mil (Enem 2025)", "https://sistemapoliedro.zoom.us/rec/share/2EJhB-Mo3j2ITRia75VFtljMs1eaqDqLqFLbW_2VSgMHi4maGsXWkdMeNQDGnM_i.cBqhtE_Ll4yRx9zr?startTime=1786630058000"],
+  ["15/ago", "Tiago Fernandes", "Interpretação de Texto", "Gêneros Textuais 2", "https://sistemapoliedro.zoom.us/rec/share/Iw1JTStwE-XbMrLCb6UWkJmO8lDRHVf_zg3tofepQE3BX85cJNXeqy24dY7lMzSn.CqX_gJoSJqr7oy9i?startTime=1786795621000"],
+  ["19/ago", "Valdir", "Literatura", "Obras da Fuvest: Nebulosas", "https://sistemapoliedro.zoom.us/rec/share/9BvpJAARko-wsaexOeoWfBCEQIx3EMWGYMCGW0GQjY_9_2Q6fbTCCmOjOQtp72OH.q8s6A-UD4iSD-ggM?startTime=1787147969000"],
+  ["20/ago", "Shiroma", "Gramática", "Concordância Nominal", "https://sistemapoliedro.zoom.us/rec/share/raqfPfyIxdyVn1RHSC7Ky1VMGudobFgU91HfISJB88QTSyrJb5y-rQfGQrUXHPoJ.NMM1OLjIEJKay3Zu?startTime=1787227506000"],
+  ["20/ago", "Fernanda", "Redação", "Análise do Simulado Oficial da Fuvest", "https://sistemapoliedro.zoom.us/rec/share/raqfPfyIxdyVn1RHSC7Ky1VMGudobFgU91HfISJB88QTSyrJb5y-rQfGQrUXHPoJ.NMM1OLjIEJKay3Zu?startTime=1787234668000"],
 ];
 
 export const historiaRaw: RawLesson[] = [
@@ -119,6 +134,15 @@ export const historiaRaw: RawLesson[] = [
   ["25/jun", "Gui Freitas", "HG", "Revolução Francesa", "https://sistemapoliedro.zoom.us/rec/share/Hhg57bl8zFWTfq5SnV5-p1LsuQpSF6xXxXA8WKbzpLTtunKm07RcnmkkecGB0GIt.B381aGsmZ9jwb9x3?startTime=1782407886000"],
   ["30/jun", "Fernando", "HB", "República Oligárquia - Política Interna e Economia", "https://sistemapoliedro.zoom.us/rec/share/aBvo_Ew_X5MsgkM169wfvZUroNAyU-qQqLFtuFnyXuQxj0GroKILREUFRKU-GG_K.787utf1C0asiAN0_?startTime=1782820981000"],
   ["02/jul", "Gui Freitas", "HG", "Revolução Francesa II", "https://sistemapoliedro.zoom.us/rec/share/BIQjmTz69GimQD1XP2GXPvUllVolzOnGu65VtzQ5liWrNx38LtxfDIeFlCAmqkHU.3ycuyzanVyi4vuwX?startTime=1781964898000"],
+  ["28/jul", "Fernando", "HB", "República Oligárquica - Conflitos Sociais", "https://sistemapoliedro.zoom.us/rec/share/B4uv-vqjNOaHfQmqyKQwwW7Eixsmhz43x3PJlmQ3TrxPLXn4pYM_NR8maiRrDff0.HsjLja-jdKMRt6n_?startTime=1785240235000"],
+  ["30/jul", "Gui Freitas", "HG", "Era Napoleônica", "https://sistemapoliedro.zoom.us/rec/share/XWHgGlSwSFbFRjzBobq4DH4PRqpGeq9mRP6dcaCEIjdtKsP47YtmOmf0rT-M4Vd6.f5bZ_tkRXYPHMBFA?startTime=1785438958000"],
+  ["04/ago", "Fernando", "HB", "República Oligárquica - Crise", "https://sistemapoliedro.zoom.us/rec/share/JgOHK8qu0gVa4LqnURdq0mZ1zCDCUrBQDzjsOAyV5-8kGUl0FWw6QsSiAUBK2NEw.tXeKXFzvcbeflRw3?startTime=1785844916000"],
+  ["06/ago", "Gui Freitas", "HG", "Ideologias e Revoluções do Século XIX", "https://sistemapoliedro.zoom.us/rec/share/SBR2WybcpFNriLapJZs986TFmqMW6c8PrJT1_2RueVTpMZf9_5qBNqZMEAjzbeMp.5nyQ79yXzb8GBlsO?startTime=1786036585000"],
+  ["11/ago", "Fernando", "HB", "Era Vargas", "https://sistemapoliedro.zoom.us/rec/share/QZziwyJLbC4mMmyrq2Lm-KuZNomJ0Qj-yStSkJZuD4QgOGTmD0jCaAyEJ-GnefA4.vaA4rQy9MHu8D2Cs?startTime=1786449792000"],
+  ["13/ago", "Gui Freitas", "HG", "Unificações Tardias - Gravação 1", "https://sistemapoliedro.zoom.us/rec/share/2EJhB-Mo3j2ITRia75VFtljMs1eaqDqLqFLbW_2VSgMHi4maGsXWkdMeNQDGnM_i.cBqhtE_Ll4yRx9zr?startTime=1786641316000"],
+  ["13/ago", "Gui Freitas", "HG", "Unificações Tardias - Gravação 2", "https://sistemapoliedro.zoom.us/rec/share/TNBEPHny74VFwLqRl8OVoHFbvp4KQS8VZNBG40VPcsgud6fw1m3C2pKf2Nsej61h.palzfQDRvrVBfcws?startTime=1786645201000"],
+  ["18/ago", "Fernando", "HB", "Era Vargas - parte 2", "https://sistemapoliedro.zoom.us/rec/share/F5yMKT63LWRLvBFXd9F0e6rwEv3RP-fONbO71SrOcLsyYOXen-lD93QZJU_EpTXx.RnlbbmoTfRgy1N5K?startTime=1787054601000"],
+  ["20/ago", "Gui Freitas", "HG", "Imperialismo e Neocolonismo", "https://sistemapoliedro.zoom.us/rec/share/raqfPfyIxdyVn1RHSC7Ky1VMGudobFgU91HfISJB88QTSyrJb5y-rQfGQrUXHPoJ.NMM1OLjIEJKay3Zu?startTime=1787246235000"],
 ];
 
 export const geografiaRaw: RawLesson[] = [
@@ -181,6 +205,18 @@ export const geografiaRaw: RawLesson[] = [
   ["29/jun", "Daniel", "Atualidades", "Lista de Exercícios", "https://sistemapoliedro.zoom.us/rec/share/M-u5PkJScWhFJNUOKlU4PRmFTx5yk9_UxstHvVwxNfJ4zSqWNCIJnH5v74A0ynA.Lur4toqcjoQoc1sE?startTime=1782735494000"],
   ["01/jul", "Marcel", "2", "Energia II (Petróleo no Brasil)", "https://sistemapoliedro.zoom.us/rec/share/X_bfE8Nu3z31iiwAyOBWd_wOtf7vUXJ_2eKDHb8Rk2kGYD0f459K0jInMNLuO0A.5adryNEWU5GqvL4v?startTime=1782900492000"],
   ["01/jul", "Cris", "1", "Correntes Marítimas", "https://sistemapoliedro.zoom.us/rec/share/X_bfE8Nu3z31iiwAyOBWd_wOtf7vUXJ_2eKDHb8Rk2kGYD0f459K0jInMNLuO0A.5adryNEWU5GqvL4v?startTime=1782933383000"],
+  ["27/jul", "Daniel", "Atualidades", "Copa do Mundo, História e Geopolítica", "https://sistemapoliedro.zoom.us/rec/share/PDReVTUFbwNLvOcPD68fen2y9Yect-EPDtF5woch4qWvLghQvdgg0IPexeZk_a5C.BD0fQMdQFwXQcOw2?startTime=1785156675000"],
+  ["29/jul", "Marcel", "2", "Energia III", "https://sistemapoliedro.zoom.us/rec/share/b9Ck1zS31kVKtYyPOrg3pBO-WX_9b6FQ3M5ackoHkGs0RqY-HUxCscKm6-Zd7apy.Gw_RfwN-Km6J7IAL?startTime=1785319504000"],
+  ["31/jul", "Cris", "1", "Clima", "https://sistemapoliedro.zoom.us/rec/share/34zmDLrOjByWwgxYXzcXQtCT8J29xf_Vwbh88UMzOdJZOPCViCjkHPokAavBQgTK.PMWx76arMQWGHz16?startTime=1785506802000"],
+  ["03/ago", "Daniel", "Atualidades", "Populações Deslocadas: Refugiados", "https://sistemapoliedro.zoom.us/rec/share/DcJT0305Dyd-EJR9qdwOenzl0cJq5X6yHFeaw48eyBE8xBOeQRjiUX4GeRXUDMnc.VFQHhCaPjAvFWV_7?startTime=1785761506000"],
+  ["05/ago", "Marcel", "2", "Energia III (continuação)", "https://sistemapoliedro.zoom.us/rec/share/Fjp0xhDNAdbkqDv1QrHg3Xz4OKPgS7ptiRr9oD6a6DX4pNK7V75wForU1XqLiLcd.J3ZSlTcgL1itJxwm?startTime=1785924642000"],
+  ["07/ago", "Cris", "1", "Climograma + Mudanças Climáticas", "https://sistemapoliedro.zoom.us/rec/share/UCMSqUwrUGFnac0O2yygnaMpYddfTuszNhYoTxjaeWIWkGPOi4R4Qq5CTcJu-B17.ZtVB6ZIHO8sJRly3?startTime=1786111625000"],
+  ["10/ago", "Daniel", "Atualidades", "América I - EUA, El Salvador, Haiti, Porto Rico", "https://sistemapoliedro.zoom.us/rec/share/zRTE1yzrC0Vk5aFFR2ixlfZ7JWu_hdCFFCQ75eIYE0yM9RFKl_L1gX4LcY--qmc.9rpFh9JGznwr319S?startTime=1786366416000"],
+  ["12/ago", "Marcel", "2", "Rotas de Transporte e Comunicação + Geopolítica Global", "https://sistemapoliedro.zoom.us/rec/share/PEI5ZTzNsI7nhMp7QkwCu-3xpr_EoOmynt38FBfPHRmwbF2w8tke5h0g0ng5cNjg.z2yI3M8rlLQmCO46?startTime=1786529190000"],
+  ["14/ago", "Cris", "1", "Hidrografia", "https://sistemapoliedro.zoom.us/rec/share/r5eWOPkhq9Z4a2VnE-WnN3ehE9SUiQKu3E7wz6aaotXux4tDVZhlIwkeKBQi_-Up.H-0rmxLEnHtR00zn?startTime=1786716488000"],
+  ["17/ago", "Daniel", "Atualidades", "América II - Venezuela, Cuba, Argentina e Eleições 2025-26", "https://sistemapoliedro.zoom.us/rec/share/ItfQ_PE8NcAUY8vVAESwH408VKIJRF2fhTIoB9wJ8xlSjEmy0wEkOoT0cSPmh53u.oc0DxkMo9L7X17ht?startTime=1786971346000"],
+  ["19/ago", "Marcel", "2", "Geopolítica Global + Centros de Poder II", "https://sistemapoliedro.zoom.us/rec/share/9BvpJAARko-wsaexOeoWfBCEQIx3EMWGYMCGW0GQjY_9_2Q6fbTCCmOjOQtp72OH.q8s6A-UD4iSD-ggM?startTime=1787133966000"],
+  ["21/ago", "Cris", "1", "Bacias Hidrográficas", "https://sistemapoliedro.zoom.us/rec/share/8mHb6oNB-YV8E3G51PfhgxcdEIxU6HYgCYHGlu_u2g8P3HwxDNhEIRqV-BXB2gR4.9OYVP-jcM1CZBEDf?startTime=1787321241000"],
 ];
 
 export const filosofiaRaw: RawLesson[] = [
@@ -204,4 +240,8 @@ export const filosofiaRaw: RawLesson[] = [
   ["19/jun", "Jojo", "Sociologia", "Zygmunt Bauman e a Modernidade Líquida", "https://sistemapoliedro.zoom.us/rec/share/-azeNG2zQvN6JocS9eN1c15P94YNsENYaquzrXxlRYyK3f47CU5pwjAf594ly7ZJ.N4ybhPe2ai0XdJZE?startTime=1781870610000"],
   ["26/jun", "Jojo", "Filosofia", "Kant e Friedrich Hegel", "https://sistemapoliedro.zoom.us/rec/share/4ZFq9TX4fz913fzetRFbvjrS1vGfKGf1RBD6aGswkUJOYtwF-rOlfqCsnxkyosZr.y496pIoj3lpJTMs9?startTime=1782475518000"],
   ["03/jul", "Jojo", "Sociologia", "Biopolítica, Necropolítica e Psicopolítica", "https://sistemapoliedro.zoom.us/rec/share/roRhTyMG_wgMksKKHzG0bOejxl4UgPGssid9XECTcxhWM4WVS_g69Ju5svlXTdip.1oqnR1csp3V4FcD0?startTime=1783080515000"],
+  ["31/jul", "Jojo", "Filosofia", "Schopenhauer, Søren Kiergaard e Friedrich Nietzsche", "https://sistemapoliedro.zoom.us/rec/share/34zmDLrOjByWwgxYXzcXQtCT8J29xf_Vwbh88UMzOdJZOPCViCjkHPokAavBQgTK.PMWx76arMQWGHz16?startTime=1785499556000"],
+  ["07/ago", "Jojo", "Sociologia", "Capitalismo Financeiro Monopolista", "https://sistemapoliedro.zoom.us/rec/share/UCMSqUwrUGFnac0O2yygnaMpYddfTuszNhYoTxjaeWIWkGPOi4R4Qq5CTcJu-B17.ZtVB6ZIHO8sJRly3?startTime=1786104304000"],
+  ["14/ago", "Jojo", "Filosofia", "Existencialismo e Absurdismo", "https://sistemapoliedro.zoom.us/rec/share/r5eWOPkhq9Z4a2VnE-WnN3ehE9SUiQKu3E7wz6aaotXux4tDVZhlIwkeKBQi_-Up.H-0rmxLEnHtR00zn?startTime=1786709102000"],
+  ["21/ago", "Jojo", "Sociologia", "Capitalismo Financeiro Informacional", "https://sistemapoliedro.zoom.us/rec/share/8mHb6oNB-YV8E3G51PfhgxcdEIxU6HYgCYHGlu_u2g8P3HwxDNhEIRqV-BXB2gR4.9OYVP-jcM1CZBEDf?startTime=1787313847000"],
 ];
