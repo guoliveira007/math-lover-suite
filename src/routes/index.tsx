@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { areas, professorColor, subjects } from "@/data/subjects";
 import type { Lesson, Subject } from "@/data/types";
+import { RecordingsModal } from "@/components/RecordingsModal";
+import { getAllRecordingIds } from "@/lib/recordings";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,6 +45,16 @@ function Index() {
   const [prof, setProf] = useState<string | null>(null);
   const [watched, setWatched] = useState<string[]>([]);
   const [onlyPending, setOnlyPending] = useState(false);
+  const [recordingLesson, setRecordingLesson] = useState<Lesson | null>(null);
+  const [withRecording, setWithRecording] = useState<string[]>([]);
+
+  const refreshRecordings = () => {
+    void getAllRecordingIds().then(setWithRecording);
+  };
+
+  useEffect(() => {
+    refreshRecordings();
+  }, []);
 
 
   const subject = subjects.find((s) => s.id === subjectId)!;
@@ -264,7 +276,9 @@ function Index() {
                   lesson={lesson}
                   color={professorColor(subject, lesson.professor)}
                   watched={watched.includes(lesson.id)}
+                  hasRecording={withRecording.includes(lesson.id)}
                   onToggle={() => toggleWatched(lesson.id)}
+                  onRecordings={() => setRecordingLesson(lesson)}
                 />
 
               ))}
@@ -279,6 +293,13 @@ function Index() {
         </div>
       </footer>
 
+      {recordingLesson && (
+        <RecordingsModal
+          lesson={recordingLesson}
+          onClose={() => setRecordingLesson(null)}
+          onChanged={refreshRecordings}
+        />
+      )}
     </div>
   );
 }
@@ -287,12 +308,16 @@ function LessonCard({
   lesson,
   color,
   watched,
+  hasRecording,
   onToggle,
+  onRecordings,
 }: {
   lesson: Lesson;
   color: string;
   watched: boolean;
+  hasRecording: boolean;
   onToggle: () => void;
+  onRecordings: () => void;
 }) {
 
   return (
@@ -333,6 +358,12 @@ function LessonCard({
         >
           ▶ Assistir no Zoom
         </a>
+        <button
+          onClick={onRecordings}
+          className="border-border hover:border-primary text-muted-foreground inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors"
+        >
+          {hasRecording ? "🎬 Ver gravações" : "＋ Adicionar gravações"}
+        </button>
         <span className="text-muted-foreground/70 text-xs">
           {watched ? "Revisada" : "Pendente"}
         </span>
