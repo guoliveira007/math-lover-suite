@@ -45,13 +45,30 @@ function build(
       return mi !== 0 ? mi : Number(da) - Number(db);
     });
 
+  const professors = Array.from(new Set(lessons.map((l) => l.professor)));
+
+  const frenteRank = (p: string) => {
+    const nums = lessons
+      .filter((l) => l.professor === p)
+      .map((l) => Number((l.frente ?? "").match(/\d+/)?.[0]))
+      .filter((n) => Number.isFinite(n)) as number[];
+    return nums.length ? Math.min(...nums) : Number.POSITIVE_INFINITY;
+  };
+
+  professors.sort((a, b) => {
+    const ra = frenteRank(a);
+    const rb = frenteRank(b);
+    if (ra !== rb) return ra - rb;
+    return a.localeCompare(b, "pt-BR");
+  });
+
   return {
     id,
     label,
     area,
     tagline,
     lessons,
-    professors: Array.from(new Set(lessons.map((l) => l.professor))),
+    professors,
     months: Array.from(new Set(lessons.map((l) => l.month))),
   };
 }
