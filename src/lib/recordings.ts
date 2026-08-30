@@ -9,12 +9,15 @@ export type LessonRecordings = Partial<Record<Cam, Source>>;
 
 const DB_NAME = "aulas-gravacoes";
 const STORE = "recordings";
+export const MATERIALS_STORE = "materials";
 
-function openDb(): Promise<IDBDatabase> {
+export function openDb(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
-    const req = indexedDB.open(DB_NAME, 1);
+    const req = indexedDB.open(DB_NAME, 2);
     req.onupgradeneeded = () => {
       if (!req.result.objectStoreNames.contains(STORE)) req.result.createObjectStore(STORE);
+      if (!req.result.objectStoreNames.contains(MATERIALS_STORE))
+        req.result.createObjectStore(MATERIALS_STORE);
     };
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
