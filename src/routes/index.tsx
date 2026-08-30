@@ -3,7 +3,9 @@ import { useEffect, useMemo, useState } from "react";
 import { areas, professorColor, subjects } from "@/data/subjects";
 import type { Lesson, Subject } from "@/data/types";
 import { RecordingsModal } from "@/components/RecordingsModal";
+import { StudyModal } from "@/components/StudyModal";
 import { getAllRecordingIds } from "@/lib/recordings";
+import { getAllMaterialIds } from "@/lib/materials";
 
 export const Route = createFileRoute("/")({
   head: () => ({
