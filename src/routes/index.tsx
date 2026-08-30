@@ -214,8 +214,9 @@ function Index() {
             );
           })}
         </nav>
+        )}
 
-
+        {panelOpen && (
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           <div className="card-surface rounded-2xl p-5">
             <p className="font-display text-3xl font-bold">{subject.lessons.length}</p>
