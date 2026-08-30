@@ -48,15 +48,36 @@ function Index() {
   const [watched, setWatched] = useState<string[]>([]);
   const [onlyPending, setOnlyPending] = useState(false);
   const [recordingLesson, setRecordingLesson] = useState<Lesson | null>(null);
+  const [studyLesson, setStudyLesson] = useState<Lesson | null>(null);
   const [withRecording, setWithRecording] = useState<string[]>([]);
+  const [withMaterial, setWithMaterial] = useState<string[]>([]);
+  const [panelOpen, setPanelOpen] = useState(true);
 
   const refreshRecordings = () => {
     void getAllRecordingIds().then(setWithRecording);
+    void getAllMaterialIds().then(setWithMaterial);
   };
 
   useEffect(() => {
     refreshRecordings();
+    try {
+      const raw = localStorage.getItem(PANEL_KEY);
+      if (raw !== null) setPanelOpen(raw === "1");
+    } catch {
+      /* ignore */
+    }
   }, []);
+
+  const togglePanel = () => {
+    setPanelOpen((v) => {
+      try {
+        localStorage.setItem(PANEL_KEY, v ? "0" : "1");
+      } catch {
+        /* ignore */
+      }
+      return !v;
+    });
+  };
 
 
   const subject = subjects.find((s) => s.id === subjectId)!;
