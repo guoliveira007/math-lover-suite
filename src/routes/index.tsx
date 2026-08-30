@@ -3,7 +3,9 @@ import { useEffect, useMemo, useState } from "react";
 import { areas, professorColor, subjects } from "@/data/subjects";
 import type { Lesson, Subject } from "@/data/types";
 import { RecordingsModal } from "@/components/RecordingsModal";
+import { StudyModal } from "@/components/StudyModal";
 import { getAllRecordingIds } from "@/lib/recordings";
+import { getAllMaterialIds } from "@/lib/materials";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,6 +33,7 @@ export const Route = createFileRoute("/")({
 });
 
 const STORAGE_KEY = "aulas-vistas";
+const PANEL_KEY = "aulas-painel";
 
 function normalize(s: string) {
   return s
@@ -46,15 +49,36 @@ function Index() {
   const [watched, setWatched] = useState<string[]>([]);
   const [onlyPending, setOnlyPending] = useState(false);
   const [recordingLesson, setRecordingLesson] = useState<Lesson | null>(null);
+  const [studyLesson, setStudyLesson] = useState<Lesson | null>(null);
   const [withRecording, setWithRecording] = useState<string[]>([]);
+  const [withMaterial, setWithMaterial] = useState<string[]>([]);
+  const [panelOpen, setPanelOpen] = useState(true);
 
   const refreshRecordings = () => {
     void getAllRecordingIds().then(setWithRecording);
+    void getAllMaterialIds().then(setWithMaterial);
   };
 
   useEffect(() => {
     refreshRecordings();
+    try {
+      const raw = localStorage.getItem(PANEL_KEY);
+      if (raw !== null) setPanelOpen(raw === "1");
+    } catch {
+      /* ignore */
+    }
   }, []);
+
+  const togglePanel = () => {
+    setPanelOpen((v) => {
+      try {
+        localStorage.setItem(PANEL_KEY, v ? "0" : "1");
+      } catch {
+        /* ignore */
+      }
+      return !v;
+    });
+  };
 
 
   const subject = subjects.find((s) => s.id === subjectId)!;
@@ -114,7 +138,30 @@ function Index() {
           com busca por conteúdo e controle do que você já revisou.
         </p>
 
-        <nav className="mt-10 space-y-5">
+        <div className="mt-8 flex items-center gap-3">
+          <button onClick={togglePanel} className="chip">
+            {panelOpen ? "▲ Minimizar progresso" : "▼ Mostrar progresso"}
+          </button>
+          {!panelOpen && (
+            <div className="flex flex-wrap gap-2">
+              {subjects.map((s) => (
+                <button
+                  key={s.id}
+                  onClick={() => {
+                    setSubjectId(s.id);
+                    setProf(null);
+                  }}
+                  className={`chip ${s.id === subjectId ? "chip-active" : ""}`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {panelOpen && (
+        <nav className="mt-6 space-y-5">
           {areas.map((area) => {
             const items = subjects.filter((s) => s.area === area);
             if (items.length === 0) return null;
@@ -168,8 +215,9 @@ function Index() {
             );
           })}
         </nav>
+        )}
 
-
+        {panelOpen && (
         <div className="mt-8 grid gap-4 sm:grid-cols-3">
           <div className="card-surface rounded-2xl p-5">
             <p className="font-display text-3xl font-bold">{subject.lessons.length}</p>
@@ -194,6 +242,7 @@ function Index() {
             </p>
           </div>
         </div>
+        )}
       </header>
 
       <section className="mx-auto max-w-6xl px-5 sm:px-8">
@@ -278,7 +327,9 @@ function Index() {
                   watched={watched.includes(lesson.id)}
                   hasRecording={withRecording.includes(lesson.id)}
                   onToggle={() => toggleWatched(lesson.id)}
+                  hasMaterial={withMaterial.includes(lesson.id)}
                   onRecordings={() => setRecordingLesson(lesson)}
+                  onStudy={() => setStudyLesson(lesson)}
                 />
 
               ))}
@@ -300,6 +351,14 @@ function Index() {
           onChanged={refreshRecordings}
         />
       )}
+
+      {studyLesson && (
+        <StudyModal
+          lesson={studyLesson}
+          onClose={() => setStudyLesson(null)}
+          onChanged={refreshRecordings}
+        />
+      )}
     </div>
   );
 }
@@ -309,15 +368,19 @@ function LessonCard({
   color,
   watched,
   hasRecording,
+  hasMaterial,
   onToggle,
   onRecordings,
+  onStudy,
 }: {
   lesson: Lesson;
   color: string;
   watched: boolean;
   hasRecording: boolean;
+  hasMaterial: boolean;
   onToggle: () => void;
   onRecordings: () => void;
+  onStudy: () => void;
 }) {
 
   return (
@@ -363,6 +426,12 @@ function LessonCard({
           className="border-border hover:border-primary text-muted-foreground inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors"
         >
           {hasRecording ? "🎬 Ver gravações" : "＋ Adicionar gravações"}
+        </button>
+        <button
+          onClick={onStudy}
+          className="border-border hover:border-primary text-muted-foreground inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors"
+        >
+          {hasMaterial ? "📄 Estudar com PDF" : "＋ Adicionar PDF"}
         </button>
         <span className="text-muted-foreground/70 text-xs">
           {watched ? "Revisada" : "Pendente"}
