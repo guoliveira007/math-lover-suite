@@ -33,6 +33,7 @@ export const Route = createFileRoute("/")({
 });
 
 const STORAGE_KEY = "aulas-vistas";
+const PANEL_KEY = "aulas-painel";
 
 function normalize(s: string) {
   return s
@@ -326,7 +327,9 @@ function Index() {
                   watched={watched.includes(lesson.id)}
                   hasRecording={withRecording.includes(lesson.id)}
                   onToggle={() => toggleWatched(lesson.id)}
+                  hasMaterial={withMaterial.includes(lesson.id)}
                   onRecordings={() => setRecordingLesson(lesson)}
+                  onStudy={() => setStudyLesson(lesson)}
                 />
 
               ))}
@@ -348,6 +351,14 @@ function Index() {
           onChanged={refreshRecordings}
         />
       )}
+
+      {studyLesson && (
+        <StudyModal
+          lesson={studyLesson}
+          onClose={() => setStudyLesson(null)}
+          onChanged={refreshRecordings}
+        />
+      )}
     </div>
   );
 }
@@ -357,15 +368,19 @@ function LessonCard({
   color,
   watched,
   hasRecording,
+  hasMaterial,
   onToggle,
   onRecordings,
+  onStudy,
 }: {
   lesson: Lesson;
   color: string;
   watched: boolean;
   hasRecording: boolean;
+  hasMaterial: boolean;
   onToggle: () => void;
   onRecordings: () => void;
+  onStudy: () => void;
 }) {
 
   return (
@@ -411,6 +426,12 @@ function LessonCard({
           className="border-border hover:border-primary text-muted-foreground inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors"
         >
           {hasRecording ? "🎬 Ver gravações" : "＋ Adicionar gravações"}
+        </button>
+        <button
+          onClick={onStudy}
+          className="border-border hover:border-primary text-muted-foreground inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors"
+        >
+          {hasMaterial ? "📄 Estudar com PDF" : "＋ Adicionar PDF"}
         </button>
         <span className="text-muted-foreground/70 text-xs">
           {watched ? "Revisada" : "Pendente"}
