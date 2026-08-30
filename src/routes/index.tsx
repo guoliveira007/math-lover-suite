@@ -137,7 +137,30 @@ function Index() {
           com busca por conteúdo e controle do que você já revisou.
         </p>
 
-        <nav className="mt-10 space-y-5">
+        <div className="mt-8 flex items-center gap-3">
+          <button onClick={togglePanel} className="chip">
+            {panelOpen ? "▲ Minimizar progresso" : "▼ Mostrar progresso"}
+          </button>
+          {!panelOpen && (
+            <div className="flex flex-wrap gap-2">
+              {subjects.map((s) => (
+                <button
+                  key={s.id}
+                  onClick={() => {
+                    setSubjectId(s.id);
+                    setProf(null);
+                  }}
+                  className={`chip ${s.id === subjectId ? "chip-active" : ""}`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {panelOpen && (
+        <nav className="mt-6 space-y-5">
           {areas.map((area) => {
             const items = subjects.filter((s) => s.area === area);
             if (items.length === 0) return null;
