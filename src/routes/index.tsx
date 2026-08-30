@@ -241,6 +241,7 @@ function Index() {
             </p>
           </div>
         </div>
+        )}
       </header>
 
       <section className="mx-auto max-w-6xl px-5 sm:px-8">
